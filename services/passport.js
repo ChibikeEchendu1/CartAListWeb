@@ -21,19 +21,15 @@ passport.use(new GoogleStrategy({
     clientSecret: keys.googleClientSecret,
     callbackURL: '/auth/google/callback',
     proxy:true
-},(accessToken, refreshToken,profile,done)=>{
-    Staff.findOne({googleID: 'hdrgjdgfkjnhdfjkerergnk'}).then((existingUser)=>{
+},
+async (accessToken, refreshToken,profile,done)=>{
+ const existingUser = await Staff.findOne({googleID: 'hdrgjdgfkjnhdfjkerergnk'})
     
         if (existingUser) {
-            done(null,existingUser);
+           return done(null,existingUser);
         }
-        else{
-            new Staff({googleID: profile.id, Name: profile.displayName}).save().then(staff =>
-                
-                done(null,staff)
-            );
-            
-        
-        }
-    })
+        const staff = await new Staff({googleID: profile.id, Name: profile.displayName}).save()
+               
+                done(null,staff);
+  
 }));
