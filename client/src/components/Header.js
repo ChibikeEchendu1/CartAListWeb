@@ -25,7 +25,7 @@ class Header extends Component{
         return(
             <nav>
             <div className="nav-wrapper">
-              <Link to={this.props.auth ? '/surveys':'/'} className="brand-logo">CartAList</Link>
+              <Link style={{paddingLeft:'10px'}} to={this.props.auth ? '/select':'/'} className="brand-logo">CartAList</Link>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
               {this.renderContent()}
               </ul>

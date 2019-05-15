@@ -9,6 +9,10 @@ const staffSchema = new Schema({
     Name:{
         type :String,
         default:"Staff",
+    },
+    Store:{
+        type :String,
+        default:"nostore",
     }
 });
 

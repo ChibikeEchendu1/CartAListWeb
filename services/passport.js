@@ -23,7 +23,7 @@ passport.use(new GoogleStrategy({
     proxy:true
 },
 async (accessToken, refreshToken,profile,done)=>{
- const existingUser = await Staff.findOne({googleID: 'hdrgjdgfkjnhdfjkerergnk'})
+ const existingUser = await Staff.findOne({googleID: profile.id})
     
         if (existingUser) {
            return done(null,existingUser);

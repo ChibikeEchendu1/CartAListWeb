@@ -4,10 +4,12 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
+import Dashboard from './Dashboard'
+import ItemNew from './items/ItemNew'
+import ItemList from './items/ItemList'
+import StoreList from './stores/StoreList'
 
-
+import StoreNew from './stores/StoreNew'
 
 class App  extends Component{
 
@@ -26,9 +28,13 @@ class App  extends Component{
 
                     <Route exact={true} path="/" component={Landing}/>
 
-                    <Route exact  path="/surveys" component={Dashboard}/>
+                    <Route exact  path="/select" component={Dashboard}/>
 
-                    <Route   path="/surveys/new" component={SurveyNew}/>
+                    <Route exact  path="/item" component={ItemList}/>
+
+                    <Route exact  path="/item/new" component={ItemNew}/>
+                    <Route exact  path="/store" component={StoreList}/>
+                    <Route   path="/store/new" component={StoreNew}/>
                 </div>
             </BrowserRouter>
         </div>
